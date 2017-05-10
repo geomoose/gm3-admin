@@ -1,18 +1,12 @@
 #!/bin/bash
 
-VERS=$1
 if [ -z "$VERS" ]; then
   VERS="master"
 fi
 
-EXAMPLE=$2
-if [ -z "$EXAMPLE" ]; then
-  EXAMPLE="desktop"
-fi
-
 HOME=`pwd`
 
-APPDIR=build/gm3-$EXAMPLE-example/
+APPDIR=build/ms4w/apps/gm3-examples/htdocs/
 
 rm -rf build/
 
@@ -32,14 +26,15 @@ rm -rf .git
 # copy the config.js.example
 cp examples/config.js.example ..
 # copy the example we're building
-cp -r examples/$EXAMPLE/* ..
+cp -r examples/* ..
 
 # now remove all the rest of the examples
 rm -r examples/
 
 # checkout the needed dependencies.
 npm install 
-grunt build
+
+# grunt build
 
 # the node modules don't need to stick around
 #  after the build is done.
@@ -48,9 +43,19 @@ rm -r node_modules/
 # back to our working dir.
 cd $HOME
 
-# head to the build dir and zip up what we got.
-cd build/
+cp -r $APPDIR/geomoose $APPDIR/desktop/
+mv $APPDIR/geomoose $APPDIR/mobile/
 
-# TODO: rename "VERS" to "nightly" when "VERS" is master.
-#       Should the commit hash be included for versions?!?
-zip -r gm3-$EXAMPLE-example-$VERS-$COMMIT_VERS.zip *
+cp ms4w/config.js $APPDIR/desktop/config.js
+cp ms4w/config.js $APPDIR/mobile/config.js
+
+APACHEDIR=build/ms4w/Apache/htdocs/
+mkdir -p $APACHEDIR
+cp ms4w/gm3-examples.pkg.html $APACHEDIR
+
+CONFDIR=build/ms4w/httpd.d
+mkdir -p $CONFDIR
+cp ms4w/httpd_gm3-examples.conf $CONFDIR
+
+cd build/
+zip -r ms4w-gm3-examples-$VERS-$COMMIT_VERS.zip *
