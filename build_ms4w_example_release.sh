@@ -6,7 +6,7 @@ fi
 
 HOME=`pwd`
 
-APPDIR=build/ms4w/apps/gm3-examples/htdocs/
+APPDIR=build/ms4w/apps/gm3/htdocs/
 
 rm -rf build/
 
@@ -43,19 +43,16 @@ rm -r node_modules/
 # back to our working dir.
 cd $HOME
 
-cp -r $APPDIR/geomoose $APPDIR/desktop/
-mv $APPDIR/geomoose $APPDIR/mobile/
-
 cp ms4w/config.js $APPDIR/desktop/config.js
 cp ms4w/config.js $APPDIR/mobile/config.js
 
 APACHEDIR=build/ms4w/Apache/htdocs/
 mkdir -p $APACHEDIR
-cp ms4w/gm3-examples.pkg.html $APACHEDIR
+cp ms4w/gm3.pkg.html $APACHEDIR
 
 CONFDIR=build/ms4w/httpd.d
 mkdir -p $CONFDIR
-cp ms4w/httpd_gm3-examples.conf $CONFDIR
+cp ms4w/httpd_gm3.conf $CONFDIR
 
 cd build/
-zip -r ms4w-gm3-examples-$VERS-$COMMIT_VERS.zip *
+zip -r ms4w-gm3-$VERS-$COMMIT_VERS.zip *
