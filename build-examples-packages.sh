@@ -22,7 +22,7 @@
 # SOFTWARE.
 # 
 
-# stop errors, don't allow undefined variables
+# stop on errors, don't allow undefined variables
 set -euo pipefail
 
 function usage()
@@ -39,7 +39,7 @@ function usage()
 # TODO: Take path to gemoose-*.tgz as an optional argument
 # TODO: add a --help argument
 
-if [ ! -f "geomoose-*.tgz" ]; then
+if [ ! -f geomoose-*.tgz ]; then
     echo
     echo "Error: 'geomoose-*.tgz' not found."
     usage
