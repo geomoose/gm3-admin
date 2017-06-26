@@ -54,7 +54,7 @@ fi
 
 #REFS=$(git rev-parse --short HEAD)
 # Returns the most recent annotated (or signed) tag + any additional commits
-REFS=$(git describe)
+REFS=$(git describe | sed -e 's/^v//')
 if [ -z $REFS ] ; then
     REFS="unknown"
 fi
