@@ -46,6 +46,16 @@ if [ ! -f geomoose-*.tgz ]; then
     exit 1
 fi
 
+MS4W="$(dirname $0)/ms4w"
+if [ ! -d "$MS4W" ]; then
+    echo
+    echo "Error: can't find ms4w directory.  The ms4w directory needs"
+    echo "       to live next to this script."
+    echo "       Expecting: $MS4W"
+    echo
+    exit 1
+fi
+
 # Get the GeoMoose library version
 VERS=$(echo geomoose-*.tgz | sed -e 's/geomoose-\(.*\)\.tgz/\1/')
 
@@ -87,19 +97,17 @@ mv package gm3-examples/htdocs/geomoose
 zip -r gm3-examples-$VERS.zip gm3-examples
 
 # make MS4W examples package
-MS4W=../../gm3-admin/ms4w
-
 mkdir -p ms4w/apps
 mv gm3-examples ms4w/apps/gm3
-cp $MS4W/config.js ms4w/apps/gm3/htdocs/desktop
-cp $MS4W/config.js ms4w/apps/gm3/htdocs/mobile
+cp ../"$MS4W"/config.js ms4w/apps/gm3/htdocs/desktop
+cp ../"$MS4W"/config.js ms4w/apps/gm3/htdocs/mobile
 
 # TODO: s/GeoMoose3/GeoMoose - $VERS/ ?
 mkdir -p ms4w/Apache/htdocs
-cp $MS4W/gm3.pkg.html ms4w/Apache/htdocs
+cp ../"$MS4W"/gm3.pkg.html ms4w/Apache/htdocs
 
 mkdir -p ms4w/httpd.d
-cp $MS4W/httpd_gm3.conf ms4w/httpd.d
+cp ../"$MS4W"/httpd_gm3.conf ms4w/httpd.d
 
 zip -r gm3-examples-$VERS-ms4w.zip ms4w
 

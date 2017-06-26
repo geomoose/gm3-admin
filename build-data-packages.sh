@@ -42,6 +42,16 @@ if [ ! -f geomoose_globals.map ]; then
     exit 1
 fi
 
+MS4W="$(dirname $0)/ms4w"
+if [ ! -d "$MS4W" ]; then
+    echo
+    echo "Error: can't find ms4w directory.  The ms4w directory needs"
+    echo "       to live next to this script."
+    echo "       Expecting: $MS4W"
+    echo
+    exit 1
+fi
+
 #REFS=$(git rev-parse --short HEAD)
 # Returns the most recent annotated (or signed) tag + any additional commits
 REFS=$(git describe)
@@ -68,8 +78,6 @@ rsync -r --exclude-from=../.gitignore --exclude=.git --exclude=.gitignore --excl
 zip -r gm3-demo-data-$REFS.zip gm3-demo-data
 
 # make MS4W gm3-demo-data package
-MS4W=../../gm3-admin/ms4w
-
 mkdir -p ms4w/apps
 mv gm3-demo-data ms4w/apps
 
@@ -81,6 +89,6 @@ sed -i \
 
 # TODO: s/GeoMoose3/GeoMoose - $VERS/ ?
 mkdir -p ms4w/Apache/htdocs
-cp $MS4W/gm3-demo-data.pkg.html ms4w/Apache/htdocs
+cp ../"$MS4W"/gm3-demo-data.pkg.html ms4w/Apache/htdocs
 
 zip -r gm3-demo-data-$REFS-ms4w.zip ms4w
