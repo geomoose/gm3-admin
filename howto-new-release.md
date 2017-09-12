@@ -26,7 +26,7 @@ Updates package.json, creates a commit and an annotated git tag.
 
 # Push the changes to main gm3 repo
 
-This will trigger a build on www.geomoose.org.  Wait for new files in /downloads/ before continuing.  
+This will trigger a build on www.geomoose.org.  Wait for new files in /downloads/ before continuing.  Note: there is currently a race condition here if you don't wait long enough or if someone else pushes to master before you complete the next step.
 
 These files can also be created manually using the other scripts in this repo.
 
