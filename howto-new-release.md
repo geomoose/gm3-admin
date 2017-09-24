@@ -32,7 +32,7 @@ These files can also be created manually using the other scripts in this repo.
 
 
 ```
-  git push --tags HEAD
+  git push --tags origin HEAD
 ```
 
 # Bump master for next dev-version
