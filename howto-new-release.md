@@ -56,3 +56,5 @@ We don't want new dev commits overwriting our release.  (package.json needs to b
   git tag -a v3.0.0
   git push --tags
 ```
+
+# Cleanup old betas in downloads directory
