@@ -12,9 +12,11 @@
 Only continue if the following completes successfully.
 
 ```
-  npm install
+  ./install_test_deps.sh
   npm test
 ```
+
+Note: `npm install` doesn't install all the packages needed for complete testing because it testing requires two packages that require being built from C modules.  This causes no end of trouble for people trying to install/build GeoMoose on systems without integrated system wide compilers (looking at you Windows).
 
 # Bump the version number
 
@@ -26,7 +28,7 @@ Updates package.json, creates a commit and an annotated git tag.
 
 # Push the changes to main gm3 repo
 
-This will trigger a build on www.geomoose.org.  Wait for new files in /downloads/ before continuing.  Note: there is currently a race condition here if you don't wait long enough or if someone else pushes to master before you complete the next step.
+This will trigger a build on https://demo.geomoose.org.  Wait for new files in /downloads/ before continuing.  Note: there is currently a race condition here if you don't wait long enough or if someone else pushes to master before you complete the next step.
 
 These files can also be created manually using the other scripts in this repo.
 
@@ -42,7 +44,7 @@ We don't want new dev commits overwriting our release.  (package.json needs to b
 ```
   #npm version prepatch would be more standard
   npm version --no-git-tag-version 3.0.1-beta
-  git add package.json
+  git add package.json package-lock.json
   git commit -m 'Bump master to next dev version'
   git push
 ```
