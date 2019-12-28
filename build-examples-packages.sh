@@ -32,16 +32,16 @@ function usage()
     echo
     echo "It is meant to be run from the top level of a gm3 checkout after"
     echo "running  'npm pack'  (which builds the GeoMoose SDK and creates"
-    echo "'geomoose-VERSION.tgz')."
+    echo "'geomoose-gm3-VERSION.tgz')."
     echo
 }
 
-# TODO: Take path to gemoose-*.tgz as an optional argument
+# TODO: Take path to gemoose-gm3-*.tgz as an optional argument
 # TODO: add a --help argument
 
-if [ ! -f geomoose-*.tgz ]; then
+if [ ! -f geomoose-gm3-*.tgz ]; then
     echo
-    echo "Error: 'geomoose-*.tgz' not found."
+    echo "Error: 'geomoose-gm3-*.tgz' not found."
     usage
     exit 1
 fi
@@ -57,7 +57,7 @@ if [ ! -d "$MS4W" ]; then
 fi
 
 # Get the GeoMoose library version
-VERS=$(echo geomoose-*.tgz | sed -e 's/geomoose-\(.*\)\.tgz/\1/')
+VERS=$(echo geomoose-gm3-*.tgz | sed -e 's/geomoose-gm3-\(.*\)\.tgz/\1/')
 
 # Get the GeoMoose library git commit (if available)
 # TODO: no guarantee this actually matches what is in the .tgz file
@@ -74,7 +74,7 @@ rm -rf build.tmp
 mkdir build.tmp
 cd build.tmp
 
-tar xzvf ../geomoose-$VERS.tgz # -> package
+tar xzvf ../geomoose-gm3-$VERS.tgz # -> package
 
 mkdir -p gm3-examples/htdocs
 mv package/examples/* gm3-examples/htdocs
