@@ -72,3 +72,11 @@ Files on www.geomoose.org
    npm install           # install node_modules
    npm publish           # build and upload to npm
 ```
+
+# Update webpages/announcements
+
+	- geomoose-website/source/news.rst
+  - geomoose-website/source/download.rst
+  - geomoose-website/source/releases/<version>.rst
+  - Announce on geomoose-users list
+
