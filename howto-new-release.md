@@ -60,3 +60,15 @@ We don't want new dev commits overwriting our release.  (package.json needs to b
 ```
 
 # Cleanup old betas in downloads directory
+
+Files on www.geomoose.org
+
+# Publish to NPM
+
+```
+   git checkout v3.6.0   # checkout the version to publish
+   git clean -fxd        # make sure don't have extra files hanging out
+   npm login             # login into npm
+   npm install           # install node_modules
+   npm publish           # build and upload to npm
+```
