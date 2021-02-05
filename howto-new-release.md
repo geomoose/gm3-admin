@@ -75,8 +75,10 @@ Files on www.geomoose.org
 
 # Update webpages/announcements
 
-	- geomoose-website/source/news.rst
+  - geomoose-website/source/news.rst
   - geomoose-website/source/download.rst
   - geomoose-website/source/releases/<version>.rst
   - Announce on geomoose-users list
+	
+# Create a release on github in geomoose/gm3
 
