@@ -79,6 +79,5 @@ Files on www.geomoose.org
   - geomoose-website/source/download.rst
   - geomoose-website/source/releases/<version>.rst
   - Announce on geomoose-users list
-	
-# Create a release on github in geomoose/gm3
+  - Create a release on github in geomoose/gm3
 
