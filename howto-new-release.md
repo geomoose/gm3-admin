@@ -28,7 +28,7 @@ Updates package.json, creates a commit and an annotated git tag.
 
 # Push the changes to main gm3 repo
 
-This will trigger a build on https://demo.geomoose.org.  Wait for new files in /downloads/ before continuing.  Note: there is currently a race condition here if you don't wait long enough or if someone else pushes to master before you complete the next step.
+This will trigger a build on https://demo.geomoose.org.  Wait for new files in /downloads/ before continuing.  Note: there is currently a race condition here if you don't wait long enough or if someone else pushes to `main` before you complete the next step.
 
 These files can also be created manually using the other scripts in this repo.
 
@@ -37,7 +37,7 @@ These files can also be created manually using the other scripts in this repo.
   git push --tags origin HEAD
 ```
 
-# Bump master for next dev-version
+# Bump main branch to next dev-version
 
 We don't want new dev commits overwriting our release.  (package.json needs to be updated).
 
@@ -45,7 +45,7 @@ We don't want new dev commits overwriting our release.  (package.json needs to b
   #npm version prepatch would be more standard
   npm version --no-git-tag-version 3.0.1-beta
   git add package.json package-lock.json
-  git commit -m 'Bump master to next dev version'
+  git commit -m 'Bump main branch to next dev version'
   git push
 ```
 
