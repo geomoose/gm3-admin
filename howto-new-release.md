@@ -79,5 +79,6 @@ Files on www.geomoose.org
   - geomoose-website/source/download.rst
   - geomoose-website/source/releases/<version>.rst
   - Announce on geomoose-users list
+  - Consider announcing on discuss and/or announce lists as well although those should be more general and slightly longer with more details about the capabilities
   - Create a release on github in geomoose/gm3
 
