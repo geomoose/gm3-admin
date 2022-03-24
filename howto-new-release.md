@@ -37,6 +37,26 @@ These files can also be created manually using the other scripts in this repo.
   git push --tags origin HEAD
   ```
 
+# Also tag gm3-demo-data (it also gets built as part of the release)
+
+  ```
+  cd ..
+  git clone git@github.com:geomoose/gm3-demo-data.git
+  cd gm3-demo-data
+  git tag -a v3.0.0
+  git push --tags
+  ```
+
+# Publish to NPM
+
+  ```
+   git checkout v3.6.0   # checkout the version to publish
+   git clean -fxd        # make sure don't have extra files hanging out
+   npm login             # login into npm
+   npm install           # install node_modules
+   npm publish           # build and upload to npm
+  ```
+
 # Bump main branch to next dev-version
 
 We don't want new dev commits overwriting our release.  (package.json needs to be updated).
@@ -49,29 +69,9 @@ We don't want new dev commits overwriting our release.  (package.json needs to b
   git push
   ```
 
-# Also tag gm3-demo-data (it also gets built as part of the release)
-
-  ```
-  cd ..
-  git clone git@github.com:geomoose/gm3-demo-data.git
-  cd gm3-demo-data
-  git tag -a v3.0.0
-  git push --tags
-  ```
-
 # Cleanup old betas in downloads directory
 
 Files on www.geomoose.org
-
-# Publish to NPM
-
-  ```
-   git checkout v3.6.0   # checkout the version to publish
-   git clean -fxd        # make sure don't have extra files hanging out
-   npm login             # login into npm
-   npm install           # install node_modules
-   npm publish           # build and upload to npm
-  ```
 
 # Update webpages/announcements
 
