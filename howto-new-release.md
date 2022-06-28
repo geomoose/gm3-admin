@@ -62,6 +62,7 @@ These files can also be created manually using the other scripts in this repo.
 We don't want new dev commits overwriting our release.  (package.json needs to be updated).
 
   ```
+  git checkout main
   #npm version prepatch would be more standard
   npm version --no-git-tag-version 3.0.1-beta
   git add package.json package-lock.json
