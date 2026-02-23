@@ -79,7 +79,7 @@ tar xzvf ../geomoose-gm3-$VERS.tgz # -> package
 mkdir -p gm3-examples/htdocs
 mv package/examples/* gm3-examples/htdocs
 rmdir package/examples
-cp package/LICENSE gm3-examples
+cp package/LICENSE.md gm3-examples
 cp package/AUTHORS gm3-examples
 # TODO: Make a README.txt for the demos
 # TODO: Move config.js.example out of htdocs?
